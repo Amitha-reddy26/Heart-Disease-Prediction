@@ -1,0 +1,28 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+
+# Testing
+.pytest_cache/
+.coverage
+
+# Dataset
+data/*.csv
+
+# Generated models
+outputs/*.joblib
+
+# IDE settings
+.idea/
+.vscode/
+
+# System files
+.DS_Store
+
+# Environment variables
+.env
