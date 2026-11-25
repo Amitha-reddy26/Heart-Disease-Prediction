@@ -31,6 +31,44 @@ The model training pipeline generates the following files:
 
 Models are evaluated using accuracy, ROC-AUC, and cross-validation scores.
 
+## Model Performance and Results
+
+Nine machine learning classifiers were trained and evaluated using five-fold stratified cross-validation and a held-out test dataset.
+
+| Model | CV ROC-AUC | Test Accuracy | Test ROC-AUC |
+|---|---:|---:|---:|
+| Random Forest | 0.9265 | 90.22% | 0.9275 |
+| Logistic Regression | 0.9215 | 87.50% | 0.9296 |
+| Gradient Boosting | 0.9197 | 86.96% | 0.9174 |
+| Support Vector Machine | 0.9167 | 87.50% | 0.9394 |
+| Extra Trees | 0.9160 | 88.04% | 0.9306 |
+| Gaussian Naive Bayes | 0.9098 | 86.41% | 0.9078 |
+| K-Nearest Neighbors | 0.8912 | 85.87% | 0.9330 |
+| Multilayer Perceptron | 0.8853 | 84.78% | 0.9063 |
+| Decision Tree | 0.7959 | 76.09% | 0.7616 |
+
+### Selected Model: Random Forest
+
+Random Forest achieved the highest cross-validation ROC-AUC of 0.9265, with a test accuracy of 90.22% and a test ROC-AUC of 0.9275.
+
+The SVM achieved the highest test ROC-AUC of 0.9394. The MLP reached its maximum iterations before convergence.
+
+[View detailed evaluation metrics](outputs/metrics.csv)
+
+## Explainable AI (SHAP)
+
+SHAP was used to interpret the selected model and identify the features contributing most to its predictions.
+
+ST slope, chest pain type, maximum heart rate, and sex were among the most influential features.
+
+![SHAP Feature Importance](outputs/shap.png)
+
+## Automated Testing and Continuous Integration
+
+GitHub Actions is configured to automatically install project dependencies and execute Python unit tests using Pytest whenever changes are pushed to the main branch or submitted through pull requests.
+
+The initial automated testing workflow completed successfully.
+
 ## Limitations
 - Model performance depends on dataset quality and diversity.
 - Potential sampling bias may affect model generalization.
